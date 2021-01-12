@@ -798,13 +798,17 @@
 #if ENABLED(ASSISTED_TRAMMING)
 
   // Define positions for probing points, use the hotend as reference not the sensor.
-  #define TRAMMING_POINT_XY { {  25, 10 }, { 300,  10 }, { 300, 300 }, { 25, 300 } }
+  #define TRAMMING_POINT_XY { {  25, 10 }, { 180, 20 }, { 300, 10 }, { 300, 160 }, { 300, 300 }, { 160, 300 }, { 25, 300 } }
 
   // Define positions names for probing points.
   #define TRAMMING_POINT_NAME_1 "Front-Left"
-  #define TRAMMING_POINT_NAME_2 "Front-Right"
-  #define TRAMMING_POINT_NAME_3 "Back-Right"
-  #define TRAMMING_POINT_NAME_4 "Back-Left"
+  #define TRAMMING_POINT_NAME_2 "Front-Center"
+  #define TRAMMING_POINT_NAME_3 "Front-Right"
+  #define TRAMMING_POINT_NAME_4 "Center-Right"
+  #define TRAMMING_POINT_NAME_5 "Back-Right"
+  #define TRAMMING_POINT_NAME_6 "Back-Center"
+  #define TRAMMING_POINT_NAME_7 "Back-Left"
+  #define TRAMMING_POINT_NAME_8 "Center-Left"
 
   #define RESTORE_LEVELING_AFTER_G35    // Enable to restore leveling setup after operation
   //#define REPORT_TRAMMING_MM          // Report Z deviation (mm) for each point relative to the first
