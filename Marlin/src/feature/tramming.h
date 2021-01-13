@@ -31,7 +31,7 @@
 constexpr xy_pos_t screws_tilt_adjust_pos[] = TRAMMING_POINT_XY;
 
 #define G35_PROBE_COUNT COUNT(screws_tilt_adjust_pos)
-static_assert(WITHIN(G35_PROBE_COUNT, 3, 6), "TRAMMING_POINT_XY requires between 3 and 6 XY positions.");
+static_assert(G35_PROBE_COUNT >= 3,  "TRAMMING_POINT_XY requires 3 or Greater XY positions.");
 
 #define VALIDATE_TRAMMING_POINT(N) static_assert(N >= G35_PROBE_COUNT || Probe::build_time::can_reach(screws_tilt_adjust_pos[N]), \
   "TRAMMING_POINT_XY point " STRINGIFY(N) " is not reachable with the default NOZZLE_TO_PROBE offset and PROBING_MARGIN.")
@@ -44,6 +44,12 @@ extern const char point_name_1[], point_name_2[], point_name_3[]
       , point_name_5[]
       #ifdef TRAMMING_POINT_NAME_6
         , point_name_6[]
+        #ifdef TRAMMING_POINT_NAME_7
+        , point_name_7[]
+        #ifdef TRAMMING_POINT_NAME_8
+          , point_name_8[]
+          #endif
+        #endif
       #endif
     #endif
   #endif
@@ -62,6 +68,14 @@ extern const char point_name_1[], point_name_2[], point_name_3[]
       #ifdef TRAMMING_POINT_NAME_6
         #undef _NR_TRAM_NAMES
         #define _NR_TRAM_NAMES 6
+        #ifdef TRAMMING_POINT_NAME_7
+          #undef _NR_TRAM_NAMES
+          #define _NR_TRAM_NAMES 7
+          #ifdef TRAMMING_POINT_NAME_8
+            #undef _NR_TRAM_NAMES
+            #define _NR_TRAM_NAMES 8
+          #endif  
+        #endif
       #endif
     #endif
   #endif
