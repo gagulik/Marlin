@@ -110,7 +110,7 @@
  * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT_2 2
+#define SERIAL_PORT_2 1
 
 /**
  * This setting determines the communication speed of the printer.
@@ -1120,9 +1120,9 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR false
-#define INVERT_Y_DIR false
-#define INVERT_Z_DIR false
+#define INVERT_X_DIR true
+#define INVERT_Y_DIR true
+#define INVERT_Z_DIR true
 
 // @section extruder
 
