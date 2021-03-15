@@ -99,6 +99,23 @@
 #endif
 
 //
+// NeoPixel Pins StandAlone
+//
+#ifdef NEOPIXEL_PIN
+  #define NEOPIXEL_PIN                      PF13
+#endif
+//
+//
+
+//
+//Filament Runout
+//
+#ifdef FILAMENT_RUNOUT_SENSOR
+  #define FIL_RUNOUT_PIN                    PG14
+#endif
+//
+
+//
 // Pins on the extender
 //
 //#define X_MIN_PIN                         PI4
