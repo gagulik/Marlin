@@ -124,7 +124,7 @@
 //#define Y2_MIN_PIN                        PI7
 //#define Z_MIN_PIN                         PF6
 
-#if ENABLED(TP) && !defined(Z_MIN_PROBE_PIN)
+#if ENABLED(TP) && defined(Z_MIN_PROBE_PIN)
   #define Z_MIN_PROBE_PIN                   PH11  // Z Probe must be PH11
 #endif
 
