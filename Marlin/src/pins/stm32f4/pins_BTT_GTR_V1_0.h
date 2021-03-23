@@ -47,14 +47,63 @@
 #define PS_ON_PIN                           PH6
 
 //
+// Trinamic Stallguard pins
+//
+#define X_DIAG_PIN                          PF2 
+#define X_DIAG_PIN                           PG14
+#define Y_DIAG_PIN                           PC13
+#define Y_DIAG_PIN                           PG9
+#define Z_DIAG_PIN                           PE0
+#define Z_DIAG_PIN                           PD3
+
+//
+// Stall Sensitivity
+//
+#ifdef X_STALL_SENSITIVITY
+  #define X_STOP_PIN                  X_DIAG_PIN
+  #if X_HOME_DIR < 0
+    #define X_MAX_PIN                E0_DIAG_PIN  // X+
+  #else
+    #define X_MIN_PIN                E0_DIAG_PIN  // X+
+  #endif
+#else
+  #define X_MIN_PIN                   X_DIAG_PIN  // X-
+  #define X_MAX_PIN                  E0_DIAG_PIN  // X+
+#endif
+
+#ifdef Y_STALL_SENSITIVITY
+  #define Y_STOP_PIN                  Y_DIAG_PIN
+  #if Y_HOME_DIR < 0
+    #define Y_MAX_PIN                E1_DIAG_PIN  // Y+
+  #else
+    #define Y_MIN_PIN                E1_DIAG_PIN  // Y+
+  #endif
+#else
+  #define Y_MIN_PIN                   Y_DIAG_PIN  // Y-
+  #define Y_MAX_PIN                  E1_DIAG_PIN  // Y+
+#endif
+
+#ifdef Z_STALL_SENSITIVITY
+  #define Z_STOP_PIN                  Z_DIAG_PIN
+  #if Z_HOME_DIR < 0
+    #define Z_MAX_PIN                E2_DIAG_PIN  // Z+
+  #else
+    #define Z_MIN_PIN                E2_DIAG_PIN  // Z+
+  #endif
+#else
+  #define Z_MIN_PIN                   Z_DIAG_PIN  // Z-
+  #define Z_MAX_PIN                  E2_DIAG_PIN  // Z+
+#endif
+
+//
 // Limit Switches
 //
-#define X_MIN_PIN                           PF2
-#define X_MAX_PIN                           PG14
-#define Y_MIN_PIN                           PC13
-#define Y_MAX_PIN                           PG9
-#define Z_MIN_PIN                           PE0
-#define Z_MAX_PIN                           PD3
+//#define X_MIN_PIN                           PF2
+//#define X_MAX_PIN                           PG14
+//#define Y_MIN_PIN                           PC13
+//#define Y_MAX_PIN                           PG9
+//#define Z_MIN_PIN                           PE0
+//#define Z_MAX_PIN                           PD3
 
 //
 // Pins on the extender
@@ -65,7 +114,17 @@
 //#define Y2_MIN_PIN                        PI7
 //#define Z_MIN_PIN                         PF6
 
-#if ENABLED(TP) && !defined(Z_MIN_PROBE_PIN)
+//
+// NeoPixel Pin StandAlone
+//
+#ifdef NEOPIXEL_PIN
+  #define NEOPIXEL_PIN                      PF13
+#endif
+//
+//
+
+
+#if ENABLED(TP) && defined(Z_MIN_PROBE_PIN)
   #define Z_MIN_PROBE_PIN                   PH11  // Z Probe must be PH11
 #endif
 
