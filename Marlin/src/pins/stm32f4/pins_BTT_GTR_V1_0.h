@@ -46,6 +46,7 @@
 
 #define PS_ON_PIN                           PH6
 
+/*
 //
 // Trinamic Stallguard pins
 //
@@ -94,16 +95,17 @@
   #define Z_MIN_PIN                   Z_DIAG_PIN  // Z-
   #define Z_MAX_PIN                  E2_DIAG_PIN  // Z+
 #endif
+*/
 
 //
 // Limit Switches
 //
-//#define X_MIN_PIN                           PF2
-//#define X_MAX_PIN                           PG14
-//#define Y_MIN_PIN                           PC13
-//#define Y_MAX_PIN                           PG9
-//#define Z_MIN_PIN                           PE0
-//#define Z_MAX_PIN                           PD3
+#define X_MIN_PIN                           PF2
+#define X_MAX_PIN                           PG14
+#define Y_MIN_PIN                           PC13
+#define Y_MAX_PIN                           PG9
+#define Z_MIN_PIN                           PE0
+#define Z_MAX_PIN                           PD3
 
 //
 // Pins on the extender
